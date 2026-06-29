@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.fixture/
+.pytest_cache/
+
+# local-only: dogfood project memory, archived v1, internal design history
+bd/
+archive/
+docs/superpowers/
+
+# Cursor-specific installer, kept local (public repo uses manual install)
+install.sh

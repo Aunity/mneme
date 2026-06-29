@@ -1,0 +1,38 @@
+---
+alwaysApply: true
+---
+# 北斗 (bd) — Goal-Spine Memory
+
+## Scope boundary
+- All file reads/writes default to the current `PROJECT_DIR`. Do not roam other
+  sibling projects or `WORK_DIR` root. Reading user-referenced external paths is OK.
+- bd memory lives at `PROJECT_DIR/bd/` (`COMPASS.md` + `JOURNAL.md` + `LESSONS.md`).
+
+## Use the compass
+- At session start, run `bd resume` (or read `bd/COMPASS.md`). `COMPASS.md` is the
+  single source of truth for goal + milestones + frontier + next action.
+- **Every Next Action must serve a Milestone.** Before acting, confirm Next Action[1]
+  advances the current ▶ milestone; if it doesn't, fix it in COMPASS `Alignment` first.
+- When you log work (`bd save`), set `advanced:` to the milestone you moved; if you
+  moved none, write `advanced: none — <why>` (a drift signal, not a failure to hide).
+- Run `bd check` anytime you suspect you've drifted; `bd check --lint` validates
+  COMPASS invariants (one ▶ milestone, Next Action has a `verify:`, no run of
+  `advanced: none`) and exits non-zero on failure.
+
+## Writing discipline
+- `JOURNAL.md` / `LESSONS.md` are append-only and immutable. Never edit past entries;
+  to correct one, append a new entry referencing the old id.
+- Rewrite COMPASS `Current Frontier` / `Next Action` / `Alignment` on each save;
+  keep `North Star` / `Constraints` / `Milestones` stable (change deliberately).
+
+## Emergency save
+- If context is about to be auto-compacted, you MAY run `bd save` without asking,
+  tag the entry `[emergency-save]`, and tell the user to re-check COMPASS next session.
+
+## Activation
+- This rule is always on. The richer bd procedures live in on-demand skills
+  (`bd-save`, `bd-resume`, `bd-log`, `bd-branch`); load them when needed.
+- `<bd.py>` in every skill = the bd CLI (pure stdlib). Prefer the installed copy at
+  `<WORK_DIR>/.cursor/tools/bd.py`; if absent, fall back to the in-place repo copy
+  `<WORK_DIR>/workflow_opt/tools/bd.py`. Resolve its absolute path once per session
+  and call `python <abs> …`.
