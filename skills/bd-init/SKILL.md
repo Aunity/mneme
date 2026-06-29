@@ -5,9 +5,9 @@ description: Scaffold a new bd project memory with the near-zero-friction 3-ques
 # bd-init
 
 0. Resolve `<bd.py>` once: prefer `<WORK_DIR>/.cursor/tools/bd.py`, else the in-place
-   repo copy `<WORK_DIR>/workflow_opt/tools/bd.py`.
+   repo copy `<bd-repo>/tools/bd.py` (wherever you cloned this repo).
 1. Resolve `PROJECT_DIR`; refuse if `PROJECT_DIR/bd/` already exists.
-2. Ask the 3 startup questions (spec §8) in ONE round; accept terse answers:
+2. Ask the 3 startup questions in ONE round; accept terse answers:
    - ① **North Star** — one sentence: what must this project ultimately achieve,
      and what does *verifiable* success look like?
    - ② The first **2-3 Milestones** — each a *verifiable output*, not an action.

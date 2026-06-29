@@ -34,5 +34,5 @@ alwaysApply: true
   (`bd-save`, `bd-resume`, `bd-log`, `bd-branch`); load them when needed.
 - `<bd.py>` in every skill = the bd CLI (pure stdlib). Prefer the installed copy at
   `<WORK_DIR>/.cursor/tools/bd.py`; if absent, fall back to the in-place repo copy
-  `<WORK_DIR>/workflow_opt/tools/bd.py`. Resolve its absolute path once per session
-  and call `python <abs> …`.
+  `<bd-repo>/tools/bd.py` (wherever you cloned this repo). Resolve its absolute path
+  once per session and call `python <abs> …`.
